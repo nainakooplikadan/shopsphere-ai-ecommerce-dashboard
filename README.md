@@ -1,16 +1,114 @@
-# React + Vite
+# 🛍️ ShopSphere – AI E-Commerce Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, responsive e-commerce dashboard built with React and JavaScript, featuring live product data, product discovery, and a persistent shopping cart.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+Coming Soon
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **Live Product Data:** Fetches products from the DummyJSON public API.
+- **Product Search:** Search products by title.
+- **Category Filtering:** Filter products by category.
+- **Sorting:** Sort by price (low to high / high to low) and customer rating.
+- **Dashboard Analytics:** Displays visible product count, average price, and average rating.
+- **Shopping Cart:** Add, remove, increment, and decrement product quantities.
+- **Cart Persistence:** Saves cart data in browser localStorage.
+- **Responsive UI:** Designed for desktop and mobile screens.
+- **Error Handling:** Loading, empty, retry, timeout, and API error states.
+- **Image Fallbacks:** Handles unavailable product images gracefully.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the Oxlint configuration
+- React.js
+- JavaScript (ES6+)
+- Vite
+- HTML5
+- CSS3
+- Fetch API
+- Browser localStorage
+- DummyJSON API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🌐 API Integration
+
+Product data is fetched from:
+
+https://dummyjson.com/products?limit=24
+
+No API key required.
+
+## 📂 Project Structure
+
+```text
+shopsphere/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+## ⚙️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/nainakooplikadan/shopsphere-ai-ecommerce-dashboard.git
+```
+
+### 2. Navigate to the project
+
+```bash
+cd shopsphere-ai-ecommerce-dashboard
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+### 5. Build for production
+
+```bash
+npm run build
+```
+
+## 🛒 Cart Functionality
+
+- Add products to cart.
+- Increase or decrease quantities.
+- Remove individual products.
+- Clear the entire cart.
+- Automatically calculate subtotal.
+- Persist cart contents using localStorage.
+
+Cart data is stored locally in the browser and is not synchronized across devices.
+
+## ⚠️ Notes
+
+- Product information is retrieved from the public DummyJSON API.
+- Prices are displayed in USD for demonstration purposes.
+- Only the loaded product subset is searchable and filterable.
+- This is a frontend demonstration project. It does not include authentication, payments, or checkout.
+
+## 👩‍💻 Author
+
+**Naina Kooplikadan**
+
+- GitHub: https://github.com/nainakooplikadan
+
+---
+
+⭐ If you find this project interesting, feel free to explore the repository!
