@@ -1,0 +1,154 @@
+:root {
+  --navy-900: #0b1730;
+  --navy-800: #12234a;
+  --navy-100: #e6ebf5;
+  --orange-500: #ff9a2e;
+  --orange-600: #c2570a;
+  --ink: #14203a;
+  --muted: #4a5670;
+  --line: #d3dbe9;
+  --surface: #ffffff;
+  --bg: #f3f5fa;
+  --radius: 12px;
+  --focus: 0 0 0 3px #ffffff, 0 0 0 6px #1d4ed8;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.45;
+  overflow-x: hidden;
+}
+
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* Focus */
+:focus-visible { outline: none; box-shadow: var(--focus); border-radius: 8px; }
+
+.skip-link {
+  position: absolute; left: 8px; top: -60px; z-index: 10;
+  background: var(--orange-500); color: var(--navy-900);
+  font-weight: 700; padding: 10px 14px; border-radius: 8px; text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+/* Header */
+.topbar {
+  background: var(--navy-900); color: #fff;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px;
+  padding: 14px clamp(12px, 3vw, 32px);
+}
+.brand { display: flex; align-items: center; gap: 12px; flex: 1 1 220px; min-width: 0; }
+.brand__logo {
+  width: 40px; height: 40px; flex: none; border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, var(--orange-500) 0 30%, transparent 32%),
+    conic-gradient(from 200deg, #3b5bdb, var(--navy-800), #3b5bdb);
+  box-shadow: inset 0 0 0 3px var(--orange-500);
+}
+.brand__name { margin: 0; font-size: 1.5rem; letter-spacing: 0.01em; line-height: 1.1; }
+.brand__tag { margin: 2px 0 0; font-size: 0.85rem; color: #c9d3ea; }
+
+.topbar__badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge {
+  font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+  background: var(--navy-800); color: #fff; border: 1px solid #3a4d7d;
+}
+.badge--mock { background: var(--orange-500); color: var(--navy-900); border-color: var(--orange-500); }
+
+.cart-btn {
+  font: inherit; font-weight: 700; padding: 10px 16px; border-radius: 8px;
+  border: 1px solid #3a4d7d; background: var(--navy-800); color: #d5dcee;
+}
+
+/* Layout */
+.page {
+  width: 100%; max-width: 1360px; margin: 0 auto; flex: 1;
+  padding: 20px clamp(12px, 3vw, 32px) 32px;
+  display: grid; gap: 24px;
+}
+.section-title { margin: 0 0 12px; font-size: 1.15rem; color: var(--navy-800); }
+#products:focus { outline: none; }
+
+/* Controls (disabled) */
+.controls {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 14px; display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: flex-end;
+}
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 0 1 200px; }
+.field--grow { flex: 1 1 260px; }
+.field label { font-size: 0.85rem; font-weight: 700; color: var(--ink); }
+.field input, .field select {
+  font: inherit; padding: 9px 10px; border-radius: 8px; width: 100%; min-width: 0;
+  border: 1px solid #aab4c9;
+}
+.field input:disabled, .field select:disabled,
+.add-btn:disabled {
+  background: #e9edf3; color: #46506a; border-color: #aab4c9; cursor: not-allowed;
+}
+.controls__note { flex: 1 1 100%; margin: 0; font-size: 0.85rem; color: var(--muted); }
+
+/* Summary */
+.summary { margin: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+.summary-card {
+  background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--orange-500);
+  border-radius: var(--radius); padding: 12px 16px;
+}
+.summary-card dt { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+.summary-card dd { margin: 4px 0 0; font-size: 1.6rem; font-weight: 800; color: var(--navy-900); }
+
+/* Grid and cards */
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; display: flex; flex-direction: column; min-width: 0;
+}
+.card__body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.card__meta { margin: 0; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.chip {
+  font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+  background: var(--navy-100); color: var(--navy-800);
+}
+.card__id { font-size: 0.75rem; color: var(--muted); }
+.card__title { margin: 0; font-size: 1.05rem; overflow-wrap: anywhere; }
+.card__price { margin: auto 0 0; font-size: 1.35rem; font-weight: 800; color: var(--navy-900); }
+.add-btn {
+  font: inherit; font-weight: 700; padding: 9px 12px; border-radius: 8px;
+  border: 1px solid var(--orange-600); background: var(--orange-500); color: var(--navy-900);
+}
+
+/* CSS image placeholders */
+.thumb {
+  aspect-ratio: 4 / 3; display: grid; place-items: center; color: rgba(255, 255, 255, 0.92);
+}
+.thumb__glyph { font-size: clamp(2.2rem, 8vw, 3.2rem); line-height: 1; }
+.thumb--sun   { background: linear-gradient(135deg, #b45309, #f59e0b); }
+.thumb--sky   { background: linear-gradient(135deg, #1e40af, #38bdf8); }
+.thumb--leaf  { background: linear-gradient(135deg, #166534, #4ade80); color: #052e16; }
+.thumb--clay  { background: linear-gradient(135deg, #7c2d12, #ea580c); }
+.thumb--night { background: linear-gradient(135deg, #0b1730, #3b5bdb); }
+.thumb--moss  { background: linear-gradient(135deg, #3f6212, #a3e635); color: #1a2e05; }
+.thumb--rose  { background: linear-gradient(135deg, #9f1239, #fb7185); }
+.thumb--steel { background: linear-gradient(135deg, #334155, #94a3b8); }
+
+/* Rating */
+.rating { display: inline-flex; align-items: center; gap: 6px; }
+.rating__stars { color: #b45309; letter-spacing: 1px; }
+.rating__off { color: #c5cdde; }
+.rating__num { font-weight: 700; font-size: 0.9rem; }
+
+.footer {
+  background: var(--navy-900); color: #c9d3ea; text-align: center;
+  padding: 14px 16px; font-size: 0.85rem;
+}
+
+@media (max-width: 480px) {
+  .brand__name { font-size: 1.3rem; }
+  .cart-btn { width: 100%; }
+  .field, .field--grow { flex: 1 1 100%; }
+}
